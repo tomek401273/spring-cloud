@@ -1,0 +1,13 @@
+version: '3'
+services:
+  zippkin:
+    image: tomek371240/zippkin:latest
+    networks:
+      - springcloud-overlay
+    ports:
+      - "9411:9411"
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

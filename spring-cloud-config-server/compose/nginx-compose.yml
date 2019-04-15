@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nginx:
+    image: tomek371240/nginx
+    networks:
+      - springcloud-overlay
+    ports:
+      - 80:80
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

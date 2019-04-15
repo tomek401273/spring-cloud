@@ -1,0 +1,8 @@
+FROM adoptopenjdk/maven-openjdk11:latest
+
+WORKDIR /home/tomek
+
+COPY ./pom.xml .
+COPY ./zipkin-server-2.5.2-exec.jar .
+
+CMD ["tail", "-f", "/dev/null"]

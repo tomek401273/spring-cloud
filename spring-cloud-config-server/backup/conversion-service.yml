@@ -1,0 +1,13 @@
+version: '3'
+services:
+  currency-conversion-service:
+    image: tomek371240/currency-conversion-service:1
+    networks:
+      - springcloud-overlay
+#    ports:
+#      - "8100:8100"
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

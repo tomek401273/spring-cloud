@@ -1,0 +1,13 @@
+services:
+  zipkin:
+    image: openzipkin/zipkin:2.10.2
+    container_name: zipkin
+    depends_on:
+      - rabbitmq
+    ports:
+      - "9411:9411"
+    environment:
+      - "TZ=@timezone@"
+      - "RABBIT_URI=amqp://guest:guest@rabbitmq:5672"
+    networks:
+      - springcloud-overlay

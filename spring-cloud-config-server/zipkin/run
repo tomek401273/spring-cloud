@@ -1,0 +1,6 @@
+docker run \
+-e TZ=@timezone@ \
+-e RABBIT_URI=amqp://guest:guest@localhost:5672 \
+--network=host \
+-d \
+openzipkin/zipkin:2.10.2 \

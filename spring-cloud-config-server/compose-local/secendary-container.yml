@@ -1,0 +1,28 @@
+version: '3'
+services:
+  currency-exchange-service:
+    image: tomek371240/currency-exchange-service:3.0
+    networks:
+      - springcloud-overlay
+#    ports:
+#      - "8000:8000"
+  currency-conversion-service:
+    image: tomek371240/currency-conversion-service:3.0
+    networks:
+      - springcloud-overlay
+#    ports:
+#      - "8100:8100"
+  netflix-zuul-api-gateway-server:
+    image: tomek371240/netflix-zuul-api-gateway-server:3.0
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8765:8765"
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
+#docker network create -d overlay springcloud-overlay
+#docker stack deploy -c pre-containers.yml pre_stack
+#docker stack deploy -c docker-compose.yml first_stack
+#docker stack deploy -c secendary-container.yml sec_stack

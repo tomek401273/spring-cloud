@@ -1,0 +1,19 @@
+version: '3'
+services:
+  netflix-eureka-naming-server:
+    image: tomek371240/netflix-eureka-naming-server:1
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8761:8761"
+  currency-exchange-service:
+    image: tomek371240/currency-exchange-service:2
+    networks:
+      - springcloud-overlay
+#    ports:
+#      - "8000:8000"
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

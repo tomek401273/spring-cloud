@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rabbitmq:
+    image: tomek371240/rabbitmq:3
+    networks:
+      - springcloud-overlay
+    ports:
+      - "15672:15672"
+      - "9411:9411"
+
+#  zippkin:
+#    image: openzipkin/zipkin:latest
+#    networks:
+#      - springcloud-overlay
+#    ports:
+#      - "9411:9411"
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

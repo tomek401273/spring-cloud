@@ -1,0 +1,30 @@
+server {
+	listen 80;
+	location / {
+		proxy_pass "http://127.0.0.1:8000/";
+
+	}
+
+
+        location /currency-exchange {
+                proxy_pass "http://127.0.0.1:8000/currency-exchange/from/USD/to/INR";
+
+
+                auth_basic "Basic Authentication";
+                auth_basic_user_file "/etc/nginx/.htpasswd";
+        }
+	
+	location /eureka {
+		rewrite ^/eureka(.*) $1 break;
+		proxy_pass "http://127.0.0.1:8761/";
+	}
+
+	location /zipkin/ {
+		proxy_pass "http://127.0.0.1:9411/zipkin/";
+
+
+                auth_basic "Basic Authentication";
+                auth_basic_user_file "/etc/nginx/.htpasswd";
+        }
+	
+}

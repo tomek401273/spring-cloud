@@ -1,0 +1,16 @@
+version: "3"
+services:
+  zipkin:
+    image: openzipkin/zipkin:2.10.2
+    container_name: zipkin
+    environment:
+      - "TZ=@timezone@"
+      - "RABBIT_URI=amqp://guest:guest@rabbitmq:5672"
+    networks:
+      - springcloud-overlay
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
+
