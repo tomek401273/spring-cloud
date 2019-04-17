@@ -7,7 +7,7 @@ services:
 #    ports:
 #      - "8000:8000"
   currency-conversion-service:
-    image: tomek371240/currency-conversion-service:4.0
+    image: tomek371240/currency-conversion-service:4.1
     networks:
       - springcloud-overlay
 #    ports:
