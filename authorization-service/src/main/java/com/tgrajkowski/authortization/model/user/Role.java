@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Getter
+
 @Setter
 @Entity
 @Table(schema = "spring_cloud", name = "roles")
@@ -25,4 +25,19 @@ public class Role {
     @ManyToMany(mappedBy = "roleList", fetch = FetchType.EAGER)
     private List<User> userList = new ArrayList<>();
 
+    public long getId() {
+        return id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
 }

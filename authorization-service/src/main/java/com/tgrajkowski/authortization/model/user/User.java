@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+
 @Setter
 @ToString
 @NoArgsConstructor
@@ -30,4 +30,20 @@ public class User {
             inverseJoinColumns = {@JoinColumn (name = "roles_id")}
     )
     private List<Role> roleList = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
 }
