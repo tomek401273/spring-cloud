@@ -10,7 +10,7 @@ import java.util.List;
 
 @Setter
 @Entity
-@Table(schema = "spring_cloud", name = "roles")
+@Table(name = "roles")
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

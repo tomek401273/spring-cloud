@@ -1,4 +1,4 @@
-package com.tgrajkowski.authortization.config;
+package com.tgrajkowski.authortization.security;
 
 
 
