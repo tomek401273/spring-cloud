@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
-    <!--<link href="../node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">-->
 
 </head>
 <body>
 <h1>Intex Page</h1>
 <button onclick="getLogin()">Login</button>
 <button class="btn btn-primary" onclick="getData()">Get Data</button>
+<button onclick="getExchangeService()">Exchange Service</button>
 <div class="file-upload-wrapper">
     <input type="file" id="input-file-now" class="file-upload" />
 </div>
@@ -24,7 +24,8 @@
         login.login = 'tomek';
         login.password = 'tomek';
         var client = new XMLHttpRequest();
-        client.open("POST", "http://localhost:8765/authorization-service/login", true);
+        // client.open("POST", "http://localhost:8765/authorization-service/login", true);
+        client.open("POST", "http://localhost:9000/login", true);
         client.send((JSON.stringify(login)));
         client.onreadystatechange = function () {
             if (this.readyState == this.HEADERS_RECEIVED) {
@@ -39,26 +40,10 @@
         }
     }
     function getData() {
-        // var http = new XMLHttpRequest();
-        // var url = 'http://localhost:8080/auth/check';
-        // var method = 'GET';
-        // http.open(method, url);
-        // http.setRequestHeader('Content-Type', 'application/json');
-        // http.setRequestHeader('Authorization', token);
-        //
-        //
-        // http.onreadystatechange = function (ev) {
-        //     if (http.onreadystatechange === XMLHttpRequest.DONE && http.status === 200 ) {
-        //         console.log(http.body);
-        //         console.log(http.response);
-        //         console.log(http);
-        //     } else if (http.onreadystatechange === XMLHttpRequest.DONE && http.status !== 200) {
-        //         console.log(http.response);
-        //     }
-        // };
-        // http.send();
         var client = new XMLHttpRequest();
         client.open("GET", "http://localhost:8765/authorization-service/logic", true);
+        // client.open("GET", "http://localhost:8765/logic", true);
+        // client.open("GET", "http://localhost:9000/logic", true);
         client.setRequestHeader('Content-Type', 'application/json');
         client.setRequestHeader('Authorization', localStorage.getItem('token'));
         client.send();
@@ -67,14 +52,24 @@
                 token = client.getResponseHeader("Authorization");
 
                 console.log(client.response);
-                // console.log(client.responseText);
-                // console.log(client);
-                // console.log(client.getResponseHeader("Authorization"));
             }
         }
     }
-    console.log('something new');
-    console.log('dffsdf');
+
+    function getExchangeService () {
+        var client = new XMLHttpRequest();
+        // client.open("GET", "http://localhost:8000/currency-exchange/from/USD/to/INR", true);
+        client.open("GET", "http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/INR", true);
+        client.setRequestHeader('Content-Type', 'application/json');
+        client.setRequestHeader('Authorization', localStorage.getItem('token'));
+        client.send();
+        client.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE) {
+
+                console.log((client.response));
+            }
+        }
+    }
 </script>
 </body>
 </html>
