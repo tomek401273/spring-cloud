@@ -24,8 +24,8 @@
         login.login = 'tomek';
         login.password = 'tomek';
         var client = new XMLHttpRequest();
-        // client.open("POST", "http://localhost:8765/authorization-service/login", true);
-        client.open("POST", "http://localhost:9000/login", true);
+        client.open("POST", "http://localhost:8765/authorization-service/login", true);
+        // client.open("POST", "http://localhost:9000/login", true);
         client.send((JSON.stringify(login)));
         client.onreadystatechange = function () {
             if (this.readyState == this.HEADERS_RECEIVED) {
