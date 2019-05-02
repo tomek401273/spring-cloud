@@ -24,8 +24,13 @@
         login.login = 'tomek';
         login.password = 'tomek';
         var client = new XMLHttpRequest();
-        client.open("POST", "http://localhost:8765/authorization-service/login", true);
+        // client.open("POST", "http://localhost:8765/authorization-service/login", true);
         // client.open("POST", "http://localhost:9000/login", true);
+
+        // client.open("POST", "http://192.168.42.66:9000/login", true);
+        client.open("POST", "http://192.168.42.66:8765/authorization-service/login", true);
+        client.setRequestHeader('Content-Type', 'application/json');
+        client.setRequestHeader('Accept', 'application/json');
         client.send((JSON.stringify(login)));
         client.onreadystatechange = function () {
             if (this.readyState == this.HEADERS_RECEIVED) {
@@ -41,9 +46,13 @@
     }
     function getData() {
         var client = new XMLHttpRequest();
-        client.open("GET", "http://localhost:8765/authorization-service/logic", true);
+        // client.open("GET", "http://localhost:8765/authorization-service/logic", true);
         // client.open("GET", "http://localhost:8765/logic", true);
         // client.open("GET", "http://localhost:9000/logic", true);
+
+        // client.open("GET", "http://192.168.42.66:9000/logic", true);
+        client.open("GET", "http://192.168.42.66:8765/currency-exchange-service/currency-exchange/from/USD/to/INR", true);
+        // client.open("GET", "http://192.168.42.66:8765/logic", true);
         client.setRequestHeader('Content-Type', 'application/json');
         client.setRequestHeader('Authorization', localStorage.getItem('token'));
         client.send();
@@ -59,7 +68,8 @@
     function getExchangeService () {
         var client = new XMLHttpRequest();
         // client.open("GET", "http://localhost:8000/currency-exchange/from/USD/to/INR", true);
-        client.open("GET", "http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/INR", true);
+        // client.open("GET", "http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/INR", true);
+        client.open("GET", "http://192.168.42.66:8765/currency-conversion-service/currency-convert-feign/from/USD/to/INR/quantity/10", true);
         client.setRequestHeader('Content-Type', 'application/json');
         client.setRequestHeader('Authorization', localStorage.getItem('token'));
         client.send();
