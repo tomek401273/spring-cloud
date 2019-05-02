@@ -1,8 +1,17 @@
 version: "3"
 services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5431:5432"
+    environment:
+      - "POSTGRES_USER=docker"
+      - "POSTGRES_PASSWORD=docker"
+      - "POSTGRES_DB=docker"
+    networks:
+      - springcloud-overlay
   rabbitmq:
     image: rabbitmq:3.7.6-management
-    container_name: rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -12,10 +21,27 @@ services:
       - springcloud-overlay
   zipkin:
     image: openzipkin/zipkin:2.10.2
-    container_name: zipkin
     environment:
       - "TZ=@timezone@"
       - "RABBIT_URI=amqp://guest:guest@rabbitmq:5672"
+    networks:
+      - springcloud-overlay
+  spring-cloud-config-server:
+    image: tomek371240/config-server:3.0
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8888:8888"
+  limits-service:
+    image: tomek371240/limit-service:3.0
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8080:8080"
+    depends_on:
+      - spring-cloud-config-server
+  netflix-eureka-naming-server:
+    image:  tomek371240/netflix-eureka-naming-server:4.0
     networks:
       - springcloud-overlay
 
