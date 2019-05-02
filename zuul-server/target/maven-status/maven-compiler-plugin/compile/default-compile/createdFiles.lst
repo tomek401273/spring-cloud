@@ -1,0 +1,5 @@
+com/tgrajkowski/authortization/AuthorizationServerApplication.class
+com/tgrajkowski/authortization/ZuulLoggingFilter.class
+com/tgrajkowski/authortization/security/SpringSecurity.class
+com/tgrajkowski/authortization/security/AuthorizationFilter.class
+com/tgrajkowski/authortization/TestController.class
