@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: tomek371240/nginx:3.1
+    image: tomek371240/nginx:5.0
     networks:
       - springcloud-overlay
     ports:
@@ -10,25 +10,25 @@ services:
   #    command: tail -f /dev/null1
 
   authorization-server:
-    image: tomek371240/authorization:1.3
+    image: tomek371240/authorization:5.0
     networks:
       - springcloud-overlay
     depends_on:
       - netflix-eureka-naming-server
   currency-exchange-service:
-    image: tomek371240/currency-exchange-service:4.0
+    image: tomek371240/currency-exchange-service:5.0
     networks:
       - springcloud-overlay
   #    ports:
   #      - "8000:8000"
   currency-conversion-service:
-    image: tomek371240/currency-conversion-service:4.1
+    image: tomek371240/currency-conversion-service:5.0
     networks:
       - springcloud-overlay
   #    ports:
   #      - "8100:8100"
   netflix-zuul-api-gateway-server:
-    image: tomek371240/netflix-zuul-api-gateway-server:4.2
+    image: tomek371240/netflix-zuul-api-gateway-server:5.0
     networks:
       - springcloud-overlay
     ports:
@@ -40,3 +40,4 @@ networks:
 #docker network create -d overlay springcloud-overlay
 #docker stack deploy -c pre-containers.yml pre_stack
 #docker stack deploy -c docker-compose.yml first_stack
+#docker stack deploy -c secendary-container.yml sec_stack
