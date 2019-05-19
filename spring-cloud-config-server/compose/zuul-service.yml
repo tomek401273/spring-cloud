@@ -1,12 +1,12 @@
 version: '3'
 services:
   netflix-zuul-api-gateway-server:
-    image: tomek371240/netflix-zuul-api-gateway-server:4.2
+    image: tomek371240/netflix-zuul-api-gateway-server:4.3
     networks:
       - springcloud-overlay
     ports:
       - "8765:8765"
-    command: tail -f /dev/null
+#    command: tail -f /dev/null
 networks:
   springcloud-overlay:
     external:

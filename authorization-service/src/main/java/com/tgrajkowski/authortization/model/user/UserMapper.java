@@ -32,4 +32,12 @@ public class UserMapper {
                 .collect(Collectors.toList());
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), userRoleList);
     }
+
+    public User mapToUserPasswordEncode(UserDto userDto) {
+        User user = new User();
+        String passwordEncoded =bCryptPasswordEncoder.encode(userDto.getPassword());
+        user.setPassword(passwordEncoded);
+        user.setLogin(userDto.getLogin());
+        return user;
+    }
 }

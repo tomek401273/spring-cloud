@@ -1,0 +1,10 @@
+version: '3'
+services:
+  biblio-server:
+    image: tomek371240/biblio:2.0
+    networks:
+      - springcloud-overlay
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

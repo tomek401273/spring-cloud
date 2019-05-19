@@ -14,5 +14,6 @@
 
 FROM adoptopenjdk/openjdk11
 WORKDIR /home/tomek
-COPY ./target/authorization-server-0.0.1-SNAPSHOT.jar ./app.jar
+#COPY ./target/authorization-server-0.0.1-SNAPSHOT.jar ./app.jar
+COPY ./target/zuul-0.0.1-SNAPSHOT.jar ./app.jar
 CMD ["java", "-jar", "app.jar"]
