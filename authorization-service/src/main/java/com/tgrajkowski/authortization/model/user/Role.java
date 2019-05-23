@@ -10,7 +10,7 @@ import java.util.List;
 
 @Setter
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
