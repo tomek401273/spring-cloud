@@ -1,0 +1,12 @@
+version: '3'
+services:
+  repository-server:
+    image: tomek371240/repository:1.0
+    networks:
+      - springcloud-overlay
+#    ports:
+#      - "9000:9000"
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

@@ -40,4 +40,11 @@ public class UserMapper {
         user.setLogin(userDto.getLogin());
         return user;
     }
+
+    public UserDetails mapToUserDetails(UserDto userDto) {
+        List<GrantedAuthority> grantedAuthorities =
+                userDto.getRoleList().stream()
+                        .map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
+        return new org.springframework.security.core.userdetails.User(userDto.getLogin(), userDto.getPassword(), grantedAuthorities) ;
+    }
 }

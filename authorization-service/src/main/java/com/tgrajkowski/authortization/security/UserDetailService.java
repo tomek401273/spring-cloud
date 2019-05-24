@@ -1,8 +1,8 @@
 package com.tgrajkowski.authortization.security;
 
-import com.tgrajkowski.authortization.model.user.User;
-import com.tgrajkowski.authortization.model.user.UserDao;
+import com.tgrajkowski.authortization.model.user.UserDto;
 import com.tgrajkowski.authortization.model.user.UserMapper;
+import com.tgrajkowski.authortization.service.UserDaoProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailService implements UserDetailsService {
-    @Autowired
-    private UserDao userDao;
     private UserMapper userMapper = new UserMapper();
+    @Autowired
+    private UserDaoProxy userDaoProxy;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDao.findByLogin(username);
-        return userMapper.mapToUserDetails(user);
+        UserDto userDto = userDaoProxy.getUserByLogin(username);
+        return userMapper.mapToUserDetails(userDto);
     }
 }

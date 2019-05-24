@@ -31,23 +31,23 @@
 --        ON UPDATE NO ACTION ON DELETE NO ACTION
 --  )
 
- INSERT INTO users(
-             id, login, password)
-     VALUES (1, 'tomek', '$2a$10$wb2bCJss3flkLUCpq6D5GemoANM9jwaIrt7mNTAjo5UFt2P77ruwK');
-
- INSERT INTO roles(
-             id, code, name)
-     VALUES (1, 'admin', 'admin');
-
- INSERT INTO roles(
-             id, code, name)
-     VALUES (2, 'user', 'user');
-
-INSERT INTO user_roles(
-            users_id, roles_id)
-    VALUES (1, 1);
-
-INSERT INTO user_roles(
-            users_id, roles_id)
-    VALUES (2, 2);
-
+--  INSERT INTO users(
+--              id, login, password)
+--      VALUES (1, 'tomek', '$2a$10$wb2bCJss3flkLUCpq6D5GemoANM9jwaIrt7mNTAjo5UFt2P77ruwK');
+--
+--  INSERT INTO roles(
+--              id, code, name)
+--      VALUES (1, 'admin', 'admin');
+--
+--  INSERT INTO roles(
+--              id, code, name)
+--      VALUES (2, 'user', 'user');
+--
+-- INSERT INTO user_roles(
+--             users_id, roles_id)
+--     VALUES (1, 1);
+--
+-- INSERT INTO user_roles(
+--             users_id, roles_id)
+--     VALUES (2, 2);
+--
