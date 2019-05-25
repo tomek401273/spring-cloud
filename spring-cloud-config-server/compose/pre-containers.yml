@@ -36,8 +36,8 @@ services:
     image: tomek371240/repository:1.0
     networks:
       - springcloud-overlay
-  depends_on:
-    - spring-cloud-config-server
+    depends_on:
+      - spring-cloud-config-server
   limits-service:
     image: tomek371240/limit-service:5.0
     networks:
