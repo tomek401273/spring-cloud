@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient("cloud-repository")
-@Service
 public interface UserDaoProxy {
     @GetMapping(value = "/user/by/login")
     UserDto getUserByLogin(@RequestParam("login") String login);

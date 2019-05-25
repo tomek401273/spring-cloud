@@ -10,6 +10,9 @@ public class AuthenticationService {
 
     @Autowired
     private UserDaoProxy userDaoProxy;
+    @Autowired
+    private UserDaoProxy userDaoProxy2;
+
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
 
