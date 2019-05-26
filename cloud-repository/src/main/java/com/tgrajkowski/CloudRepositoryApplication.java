@@ -4,6 +4,7 @@ import com.tgrajkowski.model.role.Role;
 import com.tgrajkowski.model.user.User;
 import com.tgrajkowski.model.user.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,11 +18,15 @@ public class CloudRepositoryApplication {
         SpringApplication.run(CloudRepositoryApplication.class, args);
     }
 
+    @Value("${cloud-repository.own.value}")
+    private String myString;
+
     @Autowired
     private UserDao userDao;
 
     @Bean
     public void initData() {
+        System.out.println("checkoing is it really working...: "+myString);
         if (userDao.count() == 0) {
             Role roleU = new Role();
             roleU.setName("user");
