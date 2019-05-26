@@ -32,12 +32,6 @@ services:
       - springcloud-overlay
     ports:
       - "8888:8888"
-  repository-server:
-    image: tomek371240/repository:1.0
-    networks:
-      - springcloud-overlay
-    depends_on:
-      - spring-cloud-config-server
   limits-service:
     image: tomek371240/limit-service:5.0
     networks:
@@ -45,7 +39,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - repository-server
+      - spring-cloud-config-server
   netflix-eureka-naming-server:
     image:  tomek371240/netflix-eureka-naming-server:5.0
     networks:

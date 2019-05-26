@@ -1,5 +1,9 @@
 version: '3'
 services:
+  repository-server:
+    image: tomek371240/repository:1.0
+    networks:
+      - springcloud-overlay
   nginx:
     image: tomek371240/nginx:5.0
     networks:
