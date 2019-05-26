@@ -4,6 +4,8 @@ services:
     image: tomek371240/config-server:5.0
     networks:
       - springcloud-overlay
+    ports:
+      - "8888:8888"
 networks:
   springcloud-overlay:
     external:
