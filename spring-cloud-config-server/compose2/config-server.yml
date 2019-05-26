@@ -1,0 +1,10 @@
+version: '3'
+services:
+  spring-cloud-config-server:
+    image: tomek371240/config-server:5.0
+    networks:
+      - springcloud-overlay
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
