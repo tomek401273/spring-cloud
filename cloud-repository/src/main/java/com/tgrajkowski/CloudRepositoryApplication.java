@@ -35,7 +35,6 @@ public class CloudRepositoryApplication {
             roleA.setName("admin");
             roleA.setCode("admin");
 
-
             User user = new User();
             user.setLogin("tomek");
             user.setPassword("$2a$10$wb2bCJss3flkLUCpq6D5GemoANM9jwaIrt7mNTAjo5UFt2P77ruwK");
