@@ -1,5 +1,15 @@
 version: '3'
 services:
+  netflix-eureka-naming-server:
+    image:  tomek371240/netflix-eureka-naming-server:5.0
+    networks:
+      - springcloud-overlay
+  limits-service:
+    image: tomek371240/limit-service:5.0
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8080:8080"
   repository-server:
     image: tomek371240/repository:1.0
     networks:
