@@ -17,4 +17,3 @@ CMD ["java", "-jar", "./app.jar"]
 #WORKDIR /home/c
 #COPY . .
 #CMD ["mvn", "spring-boot:run"]
-learsdfdsfdsfds
