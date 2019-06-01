@@ -106,16 +106,36 @@ ALTER TABLE public.users OWNER TO docker;
 -- Data for Name: jobs; Type: TABLE DATA; Schema: public; Owner: docker
 --
 
-COPY public.jobs (id, date, title, user_id) FROM stdin;
-1	2019-05-27 15:59:12.603911	story3.docx	1
-2	2019-05-27 15:59:12.603911	new-sotry.docx	2
-3	2019-05-28 15:59:12.603911	story.docx	3
-4	2019-05-28 15:59:12.603911	story2.docx	4
-5	2019-05-28 15:59:12.603911	story3.docx	5
-6	2019-05-29 15:59:12.603911	story3.docx	6
-7	2019-05-29 15:59:12.603911	story3.docx	6
-8	2019-05-29 15:59:12.603911	story3.docx	7
-\.
+-- COPY public.jobs (id, date, title, user_id) FROM stdin;
+-- 1	2019-05-27 15:59:12.603911	story3.docx	1
+-- 2	2019-05-27 15:59:12.603911	new-sotry.docx	2
+-- 3	2019-05-28 15:59:12.603911	story.docx	3
+-- 4	2019-05-28 15:59:12.603911	story2.docx	4
+-- 5	2019-05-28 15:59:12.603911	story3.docx	5
+-- 6	2019-05-29 15:59:12.603911	story3.docx	6
+-- 7	2019-05-29 15:59:12.603911	story3.docx	6
+-- 8	2019-05-29 15:59:12.603911	story3.docx	7
+-- \.
+INSERT INTO public.jobs (id, date, title, user_id) values (1, (NOW() - INTERVAL '1 DAYS'), 'work1.docx', 1);
+INSERT INTO public.jobs (id, date, title, user_id) values (2, (NOW() - INTERVAL '1 DAYS'), 'work2.docx', 2);
+INSERT INTO public.jobs (id, date, title, user_id) values (3, (NOW() - INTERVAL '1 DAYS'), 'work3.docx', 3);
+INSERT INTO public.jobs (id, date, title, user_id) values (4, (NOW() - INTERVAL '1 DAYS'), 'work4.docx', 4);
+INSERT INTO public.jobs (id, date, title, user_id) values (5, (NOW() - INTERVAL '1 DAYS'), 'work5.docx', 5);
+
+
+INSERT INTO public.jobs (id, date, title, user_id) values (6, (NOW() - INTERVAL '2 DAYS'), 'work6.docx', 6);
+INSERT INTO public.jobs (id, date, title, user_id) values (7, (NOW() - INTERVAL '2 DAYS'), 'work7.docx', 7);
+INSERT INTO public.jobs (id, date, title, user_id) values (8, (NOW() - INTERVAL '2 DAYS'), 'work8.docx', 1);
+INSERT INTO public.jobs (id, date, title, user_id) values (9, (NOW() - INTERVAL '2 DAYS'), 'work9.docx', 2);
+
+INSERT INTO public.jobs (id, date, title, user_id) values (10, (NOW() - INTERVAL '3 DAYS'), 'work10.docx', 3);
+INSERT INTO public.jobs (id, date, title, user_id) values (11, (NOW() - INTERVAL '3 DAYS'), 'work11.docx', 4);
+INSERT INTO public.jobs (id, date, title, user_id) values (12, (NOW() - INTERVAL '3 DAYS'), 'work12.docx', 5);
+
+INSERT INTO public.jobs (id, date, title, user_id) values (13, (NOW() - INTERVAL '4 DAYS'), 'work13.docx', 6);
+INSERT INTO public.jobs (id, date, title, user_id) values (14, (NOW() - INTERVAL '4 DAYS'), 'work14.docx', 7);
+
+INSERT INTO public.jobs (id, date, title, user_id) values (15, (NOW() - INTERVAL '5 DAYS'), 'work15.docx', 1);
 
 
 --
