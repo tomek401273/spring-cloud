@@ -37,7 +37,7 @@ COMMENT ON SCHEMA public IS 'standard public schema';
 --
 
 CREATE SEQUENCE public.hibernate_sequence
-    START WITH 1
+    START WITH 16
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -137,6 +137,8 @@ INSERT INTO public.jobs (id, date, title, user_id) values (14, (NOW() - INTERVAL
 
 INSERT INTO public.jobs (id, date, title, user_id) values (15, (NOW() - INTERVAL '5 DAYS'), 'work15.docx', 1);
 
+-- DROP SEQUENCE IF EXISTS public.hibernate_sequence;
+-- CREATE SEQUENCE public.hibernate_sequence START 16;
 
 --
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: docker
