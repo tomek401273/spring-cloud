@@ -137,8 +137,7 @@ INSERT INTO public.jobs (id, date, title, user_id) values (14, (NOW() - INTERVAL
 
 INSERT INTO public.jobs (id, date, title, user_id) values (15, (NOW() - INTERVAL '5 DAYS'), 'work15.docx', 1);
 
-DROP SEQUENCE IF EXISTS public.hibernate_sequence;
-CREATE SEQUENCE public.hibernate_sequence START 16;
+
 
 --
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: docker
@@ -243,3 +242,5 @@ ALTER TABLE ONLY public.jobs
 -- PostgreSQL database dump complete
 --
 
+DROP SEQUENCE IF EXISTS public.hibernate_sequence;
+CREATE SEQUENCE public.hibernate_sequence START 16;
