@@ -31,11 +31,7 @@ public class JobDaoIml {
 
     public List<JobDaily> findDataForMonthlyChart() {
         Query query = em.createNativeQuery(
-                "SELECT DATE_TRUNC('day', date) AS date_trunc, count(id) " +
-                        "FROM jobs " +
-                        "WHERE date >= DATE_TRUNC('month', NOW()) " +
-                        "GROUP BY date_trunc " +
-                        "ORDER BY date_trunc DESC",
+                "SELECT DATE_TRUNC('day', date) AS date_trunc, count(id) FROM jobs WHERE date >= DATE_TRUNC('month', NOW() - INTERVAL '30 DAYS') GROUP BY date_trunc ORDER BY date_trunc DESC",
                 DATA_FOR_MONTHLY_CHART);
         return query.getResultList();
     }
