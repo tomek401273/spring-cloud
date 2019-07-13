@@ -15,12 +15,6 @@ public class AuthenticationService {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-
-    //    public UserDto signUp(UserDto userDto) {
-//        userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
-//        userDto = userDaoProxy.saveUser(userDto);
-//        return userDto;
-//    }
     public UserDto signUp(UserDto userDto) {
         userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         return userDaoProxy.saveUser(userDto);
