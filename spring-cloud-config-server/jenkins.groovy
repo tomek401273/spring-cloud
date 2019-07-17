@@ -17,9 +17,12 @@ def checkServerAvailability(ip) {
     }
 }
 
-node('build_node') {
+node('master') {
     stage('pull') {
         git 'https://github.com/tomek401273/spring-cloud'
+    }
+    stage('docker-postgres') {
+        sh script: 'docker build -t tomek371240/postgres:1 ./postgres/'
     }
     stage('docker-repository') {
         sh script: 'docker build -t tomek371240/repository:1.0 ./cloud-repository/'
@@ -33,13 +36,12 @@ node('build_node') {
     stage('docker-config') {
         sh script: 'docker build -t tomek371240/config-server:5.0 ./spring-cloud-config-server/'
     }
-    stage ('docker-authorization') {
-        sh script: 'docker build -t tomek371240/netflix-authorization-api-gateway-server:5.0 ./authorization-server/'
+    stage ('docker-zuul') {
+        sh script: 'docker build -t tomek371240/netflix-authorization-api-gateway-server:5.0 ./zuul-server/'
     }
     stage('docker-nginx') {
         sh script: 'docker build -t tomek371240/nginx:5.0 ./nginx/'
     }
-
     stage ('swarm-pre-stack') {
         sh script: 'docker stack deploy -c ./spring-cloud-config-server/compose/pre-containers.yml pre_stack'
     }
