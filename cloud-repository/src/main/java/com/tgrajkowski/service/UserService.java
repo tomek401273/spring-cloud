@@ -32,6 +32,6 @@ public class UserService {
         user.getRoleList().add(role);
         userDao.save(user);
         userDto.setId(user.getId());
-        return userDto;
+        return userMapper.mapToUserDto(user);
     }
 }
