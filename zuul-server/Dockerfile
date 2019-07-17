@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -y vim
 
 COPY ./pom.xml .
-COPY src/main/java/com/tgrajkowski/authorization/ZuulServerApplication.java ./src/main/java/com/tgrajkowski/zuul/ZuulServerApplication.java
+COPY src/main/java/com/tgrajkowski/authorization/ZuulServerApplication.java ./src/main/java/com/tgrajkowski/authorization/ZuulServerApplication.java
 RUN mvn install
 
 COPY . .
