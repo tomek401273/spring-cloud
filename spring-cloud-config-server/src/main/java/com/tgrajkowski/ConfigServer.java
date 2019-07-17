@@ -1,14 +1,14 @@
-package com.in28minutes.microservices.demo;
+package com.tgrajkowski;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 @SpringBootApplication
-public class DemoApplication {
+public class ConfigServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(ConfigServer.class, args);
     }
 
 }

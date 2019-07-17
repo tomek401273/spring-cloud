@@ -4,38 +4,18 @@ services:
     image:  tomek371240/netflix-eureka-naming-server:5.0
     networks:
       - springcloud-overlay
-#  limits-service:
-#    image: tomek371240/limit-service:5.0
-#    networks:
-#      - springcloud-overlay
-#    ports:
-#      - "8080:8080"
   repository-server:
     image: tomek371240/repository:1.0
     networks:
       - springcloud-overlay
-
-
   authorization-server:
     image: tomek371240/authorization:5.0
     networks:
       - springcloud-overlay
     depends_on:
       - netflix-eureka-naming-server
-#  currency-exchange-service:
-#    image: tomek371240/currency-exchange-service:5.0
-#    networks:
-#      - springcloud-overlay
-#  #    ports:
-#  #      - "8000:8000"
-#  currency-conversion-service:
-#    image: tomek371240/currency-conversion-service:5.0
-#    networks:
-#      - springcloud-overlay
-#  #    ports:
-#  #      - "8100:8100"
   netflix-zuul-api-gateway-server:
-    image: tomek371240/netflix-zuul-api-gateway-server:5.0
+    image: tomek371240/netflix-authorization-api-gateway-server:5.0
     networks:
       - springcloud-overlay
     ports:
@@ -46,8 +26,6 @@ services:
       - springcloud-overlay
     ports:
       - 80:80
-  #    command: nginx -g "daemon off"
-  #    command: tail -f /dev/null1
 networks:
   springcloud-overlay:
     external:
